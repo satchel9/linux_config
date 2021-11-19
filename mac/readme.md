@@ -37,7 +37,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```sh
 # https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
 brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
+brew install --cask font-hack-nerd-font
 ```
 
 Iterm2 里配置非 acsii 字体，否则对于 powerlevel10k 主题的特殊字体会显示不出来。
@@ -70,6 +70,7 @@ brew install autojump
 # you may brew install thefuck, fzf
 cp mac_zshrc  ~/.zshrc
 source ~/.zshrc
+# 你自己的 shell 配置可以写到 ~/.env.sh，检测有这个文件会自动 source
 ```
 
 ## 安装 tmux 和 tmux 插件管理器(optional)
@@ -84,6 +85,17 @@ brew install reattach-to-user-namespace
 # copy my tmux conf, I use https://github.com/gpakosz/.tmux
 cp .tmux.conf ~/.tmux.conf
 cp .tmux.conf.local ~/.tmux.conf.local
+```
+
+## 增加你的终端光标移动速度(移动速度飞起)
+
+```sh
+# 终端下执行以下几个命令，然后重新登出账户并登入（或者重启）
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1  # 默认值 2，设置成 1 合适，设置成 0 就太快了
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 ```
 
 # Ref
