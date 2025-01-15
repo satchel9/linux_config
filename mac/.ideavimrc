@@ -1,0 +1,140 @@
+" source ~/.ideavimrc
+" base configuration
+set showmode
+set incsearch
+set nu
+" set relativenumber
+set ignorecase
+set smartcase
+set hls
+set clipboard+=unnamed
+set keep-english-in-normal
+
+set argtextobj
+set surround
+
+" keymaps
+
+" the leader key
+let mapleader=","
+
+# insert mode map
+imap <Leader>w <esc>:w<CR>
+inoremap jj <Esc>`^
+noremap <leader>e :q<cr>
+" buffer delete
+" close all tab group
+noremap <leader>q :action CloseAllEditors<cr>
+noremap <leader>Y :action CopyPaths<cr>
+
+" the escape button
+nnoremap <C-c> <Esc>
+
+" redo
+nnoremap U <C-r>
+
+nnoremap <C-w>o :action MaximizeEditorInSplit<CR>
+
+" comfort shortcuts
+nnoremap <C-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+
+" zen-mode
+nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
+
+" find
+nnoremap <C-p> :action GotoFile<CR>
+nnoremap <leader>f :action RecentFiles<CR>
+
+nnoremap <leader>b :action FileStructurePopup<CR>
+nnoremap <leader>B :action ActivateStructureToolWindow<CR>
+
+" navigation
+" nnoremap J }
+" nnoremap K {
+
+" Jump between methods
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+nnoremap sg :action SplitVertically<CR>
+nnoremap sv :action SplitHorizontally<CR>
+nnoremap sm :action MoveEditorToOppositeTabGroup<CR>
+
+" nnoremap sh <c-w>h
+" nnoremap sl <c-w>l
+" nnoremap sj <c-w>j
+" nnoremap sk <c-w>k
+
+" use ctrl+h/j/k/l switch window
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <S-TAB> :action NextTab<CR>
+nnoremap [b :action PreviousTab<CR>
+nnoremap [n :action NextTab<CR>
+
+" Command+` and Command+Shift+` 切换多个项目窗口
+" NextProjectWindow, PreviousProjectWindow, OpenProjectWindows
+nnoremap <leader>op :action OpenProjectWindows<CR>
+
+nnoremap ;q :action CloseContent<CR>
+nnoremap ;a :action CloseAllEditors<CR>
+
+" code interactions
+nnoremap <leader>v :action CommentByLineComment<CR>
+nnoremap <leader>V :action CommentByBlockComment<CR>
+nnoremap <leader>r :action RenameElement<CR>
+nnoremap <leader>p :action ReformatCode<CR>
+nnoremap <leader>re :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>su :action ShowUsages<CR>
+" nnoremap <leader>sU :action FindUsages<CR>
+nnoremap <leader>m  :action CollapseRegion<CR>
+nnoremap <leader>M  :action ExpandRegion<CR>
+nnoremap <leader>am :action CollapseAllRegions<CR>
+nnoremap <leader>aM :action ExpandAllRegions<CR>
+
+
+" code information
+nnoremap <leader>d :action ShowHoverInfo<CR>
+nnoremap <leader>E :action ShowErrorDescription<CR>
+
+" code navigation
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gy :action GotoTypeDeclaration<CR>
+nnoremap gr :action ShowUsages<CR>
+nnoremap gR :action FindUsages<CR>
+
+" code selection
+" nnoremap <S-j> :action MoveLineDown<CR>
+" nnoremap <S-k> :action MoveLineUp<CR>
+
+" debugging
+nnoremap <leader>dc :action Debug<CR>
+nnoremap <leader>ds :action Stop<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+
+" run
+nnoremap <leader>rc :action ContextRun<CR>
+nnoremap <leader>rx :action ChooseRunConfiguration<CR>
+nnoremap <leader>rr :action Rerun<CR>
+nnoremap <leader>rt :action RunTests<CR>
+nnoremap <leader>rs :action Stop<CR>
+
+"---------- plugins ----------
+" easy motion
+Plug 'easymotion/vim-easymotion'
+" map <leader>J <Plug>(easymotion-s)
+nmap ss <Plug>(easymotion-s)
+map <leader>j <Plug>(easymotion-f)
+
+Plug 'preservim/nerdtree'
+" map <c-n> :NERDTree<CR>
+map ;a :NERDTree<CR>
+map ;e :NERDTreeToggle<CR>
+map <c-n>n :NERDTreeClose<CR>
+":NERDTreeFind
+":NERDTreeRefreshRoot
