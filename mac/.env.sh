@@ -79,6 +79,7 @@ alias vim="vi"
 # https://michaeluloth.com/neovim-switch-configs/
 alias nvi="nvim "
 alias nnvi='NVIM_APPNAME=nvim_nococ nvim' # use nvim_nococ ，不启动coc和vim-go，打开大go项目gopls太消耗cpu
+alias nnv='NVIM_APPNAME=nvim_nococ nvim' # use nvim_nococ ，不启动coc和vim-go，打开大go项目gopls太消耗cpu
 alias cl='clang '
 alias g++='g++ -Wall '
 alias gcc='gcc -Wall '
@@ -123,12 +124,14 @@ alias tpl='tmuxp load '
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias gmt='go mod tidy'
 alias goland='/Applications/GoLand.app/Contents/MacOS/goland '
+alias gld='/Applications/GoLand.app/Contents/MacOS/goland '
+alias jn='jupyter notebook'  # pip install notebook
 
 # youtube
 # python3 -m pip install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
 # alias download_youtube_mp3='yt-dlp --extract-audio --audio-format mp3 --no-playlist'
-alias download_youtube_mp3='yt-dlp -x --audio-format mp3'
-alias download_youtube='yt-dlp -f bestvideo+bestaudio '
+alias download_youtube_mp3='yt-dlp --cookies-from-browser chrome  -x --audio-format mp3'
+alias download_youtube='yt-dlp --cookies-from-browser chrome -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" '
 alias download_youtube_mp3_proxy='yt-dlp --proxy 'socks5://127.0.0.1:1080' --extract-audio --audio-format mp3 '
 alias download_youtube_proxy='yt-dlp --proxy 'socks5://127.0.0.1:1080' -f bestvideo+bestaudio '
 
